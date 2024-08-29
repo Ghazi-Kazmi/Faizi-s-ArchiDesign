@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArchiDesign USA</title>
+    <style>
+      /* General Styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      /* Added styles for the new top header */
+.top-header {
+  background-color: #444;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-header .contact-info {
+  font-size: 1rem;
+}
+
+.top-header .phone-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e74c3c;
+  background-color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+.top-header .social-icons img {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+/* Main Header Styles */
+/* Existing header styles as per your initial CSS */
+
+
+      /* Header Styles */
+      header {
+        background-color: #333;
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 50px;
+      }
+
+      .logo span {
+        color: #ddd;
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-left: 10px;
+      }
+
+      .nav-links {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 2rem;
+      }
+      /* Header Styles */
+header {
+  background-color: #333;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.logo span {
+  color: #ddd;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  color: #fff; /* White color for text */
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  background-color: #e74c3c; /* Red background on hover/focus */
+  color: #fff; /* White text on hover/focus */
+}
+
+.quote {
+  background-color: #e74c3c;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: #fff; /* White text color */
+  font-weight: bold;
+}
+
+.quote:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}
+
+      /* Dropdown Styles */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background: linear-gradient(145deg, #333, #555);
+        min-width: 180px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        overflow: hidden;
+        z-index: 1;
+        list-style: none;
+        padding: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform 0.3s ease-out;
+      }
+
+      .dropdown-content li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .dropdown-content li:last-child {
+        border-bottom: none;
+      }
+
+      .dropdown-content li a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 12px 20px;
+        transition: background-color 0.3s, padding-left 0.3s;
+      }
+
+      .dropdown-content li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding-left: 30px;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+        transform: scaleY(1);
+      }
+
+      .dropdown-content::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #333;
+      }
+
+      .dropdown:hover > a {
+        color: #e74c3c;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.3rem;
+      }
+
+      /* Quote Button Styles */
+      .quote {
+        background-color: #e74c3c;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+      }
+
+     /* Hero Section Styles */
+.hero {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.hero img {
+  width: 100vw;
+  height: calc(100vh - 150px); /* Adjusted height */
+  object-fit: cover;
+}
+
+/* Hero Text Animation Styles */
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem; /* Adjust font size as needed */
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  animation: fadeInUp 2s ease-in-out forwards, pulse 1.5s infinite ease-in-out 2s;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+
+      .scroll-button {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #e74c3c;
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      /* Content Section Styles */
+      .content {
+        padding: 2rem;
+        background-color: #f9f9f9;
+        text-align: center;
+      }
+
+      .content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Gallery Section Styles */
+      .gallery {
+        display: flex;
+        justify-content: space-around;
+        padding: 2rem;
+        gap: 1.5rem;
+      }
+
+      .gallery-item {
+        flex: 1;
+        max-width: 30%;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item img:hover {
+        transform: scale(1.05);
+      }
+
+      /* Footer Styles */
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      footer a {
+        color: #e74c3c;
+        text-decoration: none;
+      }
+
+      /* Quote Form Styles */
+      .quote-form {
+        background-color: #ffffff;
+        padding: 2rem;
+        margin: 2rem auto;
+        width: 80%;
+        max-width: 600px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .quote-form h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #333;
+        font-size: 2rem;
+      }
+
+      .quote-form form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .quote-form label {
+        margin-bottom: 0.5rem;
+        color: #555;
+        font-weight: bold;
+      }
+
+      .quote-form input,
+      .quote-form textarea,
+      .quote-form select {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+
+      .quote-form select {
+        background-color: #fff;
+      }
+
+      .quote-form input:focus,
+      .quote-form textarea:focus,
+      .quote-form select:focus {
+        border-color: #e74c3c;
+        outline: none;
+        box-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+      }
+
+      .quote-form input[type='file'] {
+        border: none;
+      }
+
+      .quote-form button {
+        padding: 0.75rem;
+        background-color: #e74c3c;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+      }
+
+      .quote-form button:hover {
+        background-color: #c0392b;
+      }
+      /* Footer Styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-column {
+  flex: 1;
+  max-width: 300px;
+}
+
+.footer-column h3 {
+  margin-bottom: 1rem;
+  color: #e74c3c;
+}
+
+.footer-column p,
+.footer-column ul {
+  color: #ddd;
+  text-align: left;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #e74c3c;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a img {
+  width: 30px;
+  height: 30px;
+  filter: invert(100%);
+  transition: transform 0.3s ease;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.1);
+  filter: invert(70%) sepia(100%) saturate(600%) hue-rotate(340deg);
+}
+
+footer p {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #e74c3c;
+  text-decoration: none;
+}
+
+/* Smooth Scroll to Footer */
+header .nav-links a[href="#contact-us"] {
+  cursor: pointer;
+}
+
+
+    </style>
+  </head>
+  <body>
+     <!-- Top Header -->
+    <div class="top-header">
+      <div class="contact-info">
+        <strong>Email:</strong> info@archidesign.com | <strong>Address:</strong> 123 Design Ave, Architecture City, NY
+      </div>
+      <div class="phone-number">+1 (800) 123-4567</div>
+      <div class="social-icons">
+        <a href="#"><img src="facebook.png" alt="Facebook" /></a>
+        <a href="#"><img src="X.png" alt="Twitter" /></a>
+        <a href="#"><img src="in.png" alt="LinkedIn" /></a>
+      </div>
+    </div>
+   <header>
+  <div class="logo">
+    <!-- <img src="jsx.png" alt="ArchiDesign USA" /> -->
+    <a href="test.html"><span>ArchiDesign USA</span></a>
+  </div>
+  <ul class="nav-links">
+    <li class="dropdown">
+      <a href="#our-services">Our Services</a>
+      <ul class="dropdown-content">
+    <li><a href="2d-planning.html">2D Planning</a></li>
+    <li><a href="3d-planning.html">3D Planning</a></li>
+    <li><a href="cost-estimation1.html">Cost Estimation</a></li>
+</ul>
+
+    </li>
+    <li><a href="#contact-us">Contact Us</a></li>
+    <li><a href="#rapid-quote" class="quote" id="rapid-quote-link">Rapid Quote</a></li> <!-- Added id here -->
+  </ul>
+</header>
+
+    <section class="hero">
+      <img src="MOMO.jpg" alt="Miami 3D Architectural Renderings" />
+        <div class="hero-text">Archi Design USA</div> <!-- Animated Text -->
+      <button class="scroll-button" onclick="scrollToForm()">Get a Quote</button>
+    </section>
+
+    <section class="content">
+      <h1>3D Architectural Rendering Services</h1>
+      <p>
+        Since 1985, ArchiDesign USA has been providing architectural rendering services to our clients to transform their architectural dreams into a
+        visual reality!
+      </p>
+      <p>
+        Whether you’re looking for a Digital Photorealistic Architectural Rendering or a simple Floor Plan, we have the expertise to create it all.
+      </p>
+      <p>
+        ArchiDesign USA serves major design firms, architects, and builders around the world with high-quality architectural renderings. Located in
+        Central Florida, ArchiDesign USA is one of very few rendering firms that specializes in giving clients access to a vast array of
+        interpretations of their upcoming projects in order to meet their unique goals.
+      </p>
+    </section>
+    <center><h2>Our Services</h2></center> 
+    <section class="gallery">
+    <div class="gallery-item">
+        <a href="2d-planning.html">
+            <img src="bobo.png" alt="2D Planning" />
+        </a>
+      <center> <h3> 2d-planning</h3> </center> 
+    </div>
+    <div class="gallery-item">
+        <a href="3d-planning.html">
+            <img src="bobo.png" alt="3D Planning" />
+        </a>
+           <center> <h3> 3d-planning</h3> </center> 
+
+    </div>
+    <div class="gallery-item">
+        <a href="cost-estimation1.html">
+            <img src="bobo.png" alt="Cost Estimation" />
+        </a>
+           <center> <h3> cost-estimation</h3> </center> 
+
+    </div>
+</section>
+
+      <!-- Quote Form Section -->
+    <section class="quote-form" id="rapid-quote">
+      <h2>Get a Rapid Quote</h2>
+      <form action="/submit-quote" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        
+        <label for="phone">Contact:</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <!-- New Field: What Best Describes You? -->
+        <label for="description">What Best Describes You?</label>
+        <select id="description" name="description" required>
+          <option value="" disabled selected>Select an option</option>
+          <option value="General Contractor">General Contractor</option>
+          <option value="Subcontractor">Subcontractor</option>
+          <option value="Material Supplier">Material Supplier</option>
+          <option value="Developer">Developer</option>
+          <option value="Home Owner">Home Owner</option>
+          <option value="Handyman">Handyman</option>
+          <option value="Others">Others</option>
+        </select>
+
+        <!-- New Field: Which project type are you looking to bid on? -->
+        <label for="project-type">Which project type are you looking to bid on?</label>
+        <select id="project-type" name="project-type" required>
+          <option value="" disabled selected>Select an option</option>
+          <option value="Residential">Residential</option>
+          <option value="Commercial">Commercial</option>
+          <option value="Government">Government</option>
+          <option value="Others">Others</option>
+        </select>
+
+        <!-- New Field: How many bids do you want to submit per month? -->
+        <label for="bids-per-month">How many bids do you want to submit per month?</label>
+        <select id="bids-per-month" name="bids-per-month" required>
+          <option value="" disabled selected>Select an option</option>
+          <option value="1">1</option>
+          <option value="2-5">2-5</option>
+          <option value="5-10">5-10</option>
+          <option value="10-20">10-20</option>
+          <option value="30+">30+</option>
+        </select>
+
+        <label for="project-details">Project Details:</label>
+        <textarea id="project-details" name="project-details" rows="4" required></textarea>
+
+        <label for="file-upload">Upload File:</label>
+        <input type="file" id="file-upload" name="file-upload" required />
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+    
+    <footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>About Us</h3>
+      <p>Estimate Florida Consulting provides construction estimating and consulting services. We have experts in construction project management. You can get a professional team to make your project successful and profitable.</p>
+      <div class="social-icons">
+        <a href="#"><img src="facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="X.png" alt="Twitter"></a>
+        <a href="#"><img src="in.png" alt="LinkedIn"></a>
+        <a href="#"><img src="youtube.png" alt="YouTube"></a>
+      </div>
+    </div>
+    <div class="footer-column">
+      <h3>Our Services</h3>
+      <ul>
+        <li><a href="2d-planning.html">2D Planning</a></li>
+        <li><a href="3d-planning.html">3D Planning</a></li>
+        <li><a href="cost-estimation1.html">Cost Estimation</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Contact Us</h3>
+      <p>Address: 5245 Wiles Rd Apt 3-102 Coconut Creek, FL 33073 United States</p>
+      <p>Phone: +1(561)530-2845</p>
+      <p>Email: info@estimatorflorida.com</p>
+    </div>
+  </div>
+  <p>&copy; 2024 ArchiDesign USA | <a href="#privacy-policy">Privacy Policy</a> | Powered by MDQ Digital</p>
+</footer>
+
+
+     <script>
+      // Function to smoothly scroll to the quote form
+      function scrollToForm() {
+        document.getElementById("rapid-quote").scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Add smooth scroll for the "Rapid Quote" link in the header
+      document.getElementById("rapid-quote-link").addEventListener("click", function (e) {
+        e.preventDefault(); // Prevent default link behavior
+        scrollToForm(); // Call the smooth scroll function
+      });
+
+            // Smooth Scroll for Contact Us Button
+      document.querySelector('a[href="#contact-us"]').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('footer').scrollIntoView({ behavior: 'smooth' });
+      });
+
+    </script>
+  </body>
+</html>

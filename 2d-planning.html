@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cost Estimation - ArchiDesign USA</title>
+    <style>
+      /* General Styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: #333;
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 50px;
+      }
+
+      .logo span {
+        color: #ddd;
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-left: 10px;
+      }
+
+      .nav-links {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 2rem;
+      }
+       /* Added styles for the new top header */
+.top-header {
+  background-color: #444;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-header .contact-info {
+  font-size: 1rem;
+}
+
+.top-header .phone-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e74c3c;
+  background-color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+.top-header .social-icons img {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+      /* Header Styles */
+header {
+  background-color: #333;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.logo span {
+  color: #ddd;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  color: #fff; /* White color for text */
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  background-color: #e74c3c; /* Red background on hover/focus */
+  color: #fff; /* White text on hover/focus */
+}
+
+.quote {
+  background-color: #e74c3c;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: #fff; /* White text color */
+  font-weight: bold;
+}
+
+.quote:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}
+      /* Dropdown Styles */
+      .dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: linear-gradient(145deg, #333, #555);
+  min-width: 180px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1000; /* Ensure it appears above other content */
+  list-style: none;
+  padding: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease-out;
+}
+
+.dropdown-content li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-content li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 12px 20px;
+  transition: background-color 0.3s, padding-left 0.3s;
+}
+
+.dropdown-content li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: 30px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  transform: scaleY(1);
+}
+
+.dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #333;
+}
+
+.dropdown:hover > a {
+  color: #e74c3c;
+  transition: color 0.3s ease;
+}
+
+      /* Quote Button Styles */
+      .quote {
+        background-color: #e74c3c;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+      }
+
+      /* Hero Section with Blurred Background Image */
+      .hero {
+        position: relative;
+        background-image: url('MOMO.jpg'); /* Replace with your image path */
+        background-size: cover;
+        background-position: center;
+        padding: 4rem 2rem;
+        text-align: center;
+        color: white;
+      }
+      /*background color */
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(228, 154, 154, 0.5); /* Black overlay with 50% opacity */
+        z-index: 1;
+      }
+
+      .hero h1, .hero p {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      /* Content Section Styles */
+      .content {
+        padding: 2rem;
+        background-color: #f9f9f9;
+        text-align: center;
+      }
+
+      .content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .content p {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Gallery Section Styles */
+      .gallery {
+        display: flex;
+        justify-content: space-around;
+        padding: 2rem;
+        gap: 1.5rem;
+      }
+
+      .gallery-item {
+        flex: 1;
+        max-width: 30%;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item img:hover {
+        transform: scale(1.05);
+      }
+
+      /* Footer Styles */
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      footer a {
+        color: #e74c3c;
+        text-decoration: none;
+      }
+
+      /* Quote Form Styles */
+      .quote-form {
+        background-color: #ffffff;
+        padding: 2rem;
+        margin: 2rem auto;
+        width: 80%;
+        max-width: 600px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .quote-form h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #333;
+        font-size: 2rem;
+      }
+
+      .quote-form form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .quote-form label {
+        margin-bottom: 0.5rem;
+        color: #555;
+        font-weight: bold;
+      }
+
+      .quote-form input,
+      .quote-form textarea,
+      .quote-form select {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+
+      .quote-form select {
+        background-color: #fff;
+      }
+
+      .quote-form input:focus,
+      .quote-form textarea:focus,
+      .quote-form select:focus {
+        border-color: #e74c3c;
+        outline: none;
+        box-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+      }
+
+      .quote-form input[type='file'] {
+        border: none;
+      }
+
+      .quote-form button {
+        padding: 0.75rem;
+        background-color: #e74c3c;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+      }
+
+      .quote-form button:hover {
+        background-color: #c0392b;
+      }
+      /* hahah*/
+      
+.hero-section {
+    background-image: url('file-QaS0pHVPiGj1VUqJ1ohbuUf3');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-section .overlay {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-section .title {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.hero-section .subtitle {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.introduction, .faq-section, .steps-section, .why-choose-us, .benefits-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.introduction .content, .image-container, .why-choose-us .image-container {
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+}
+
+.introduction .image-container img, .why-choose-us .image-container img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-section h3, .steps-section h3, .why-choose-us h3, .benefits-section h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007BFF;
+}
+
+.faq-section .faq {
+    margin-bottom: 20px;
+}
+
+.steps-section .steps-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.steps-section .steps-list li {
+    margin-bottom: 10px;
+}
+
+.steps-section .cta-button {
+    display: block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 15px 25px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin: 0 auto;
+}
+
+.steps-section .cta-button:hover {
+    background-color: #0056b3;
+}
+
+.benefits-section .benefits-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.benefits-section .benefits-list li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+  /* Footer Styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-column {
+  flex: 1;
+  max-width: 300px;
+}
+
+.footer-column h3 {
+  margin-bottom: 1rem;
+  color: #e74c3c;
+}
+
+.footer-column p,
+.footer-column ul {
+  color: #ddd;
+  text-align: left;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #e74c3c;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a img {
+  width: 30px;
+  height: 30px;
+  filter: invert(100%);
+  transition: transform 0.3s ease;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.1);
+  filter: invert(70%) sepia(100%) saturate(600%) hue-rotate(340deg);
+}
+
+footer p {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #e74c3c;
+  text-decoration: none;
+}
+
+/* Smooth Scroll to Footer */
+header .nav-links a[href="#contact-us"] {
+  cursor: pointer;
+}
+
+
+    </style>
+  </head>
+  <body>
+     <!-- Top Header -->
+    <div class="top-header">
+      <div class="contact-info">
+        <strong>Email:</strong> info@archidesign.com | <strong>Address:</strong> 123 Design Ave, Architecture City, NY
+      </div>
+      <div class="phone-number">+1 (800) 123-4567</div>
+      <div class="social-icons">
+        <a href="#"><img src="facebook.png" alt="Facebook" /></a>
+        <a href="#"><img src="X.png" alt="Twitter" /></a>
+        <a href="#"><img src="in.png" alt="LinkedIn" /></a>
+      </div>
+    </div>
+
+   <header>
+  <div class="logo">
+    <!-- <img src="jsx.png" alt="ArchiDesign USA" /> -->
+    <a href="test.html"><span>ArchiDesign USA</span></a>
+  </div>
+  <ul class="nav-links">
+    <li class="dropdown">
+      <a href="#our-services">Our Services</a>
+      <ul class="dropdown-content">
+    <li><a href="2d-planning.html">2D Planning</a></li>
+    <li><a href="3d-planning.html">3D Planning</a></li>
+    <li><a href="cost-estimation1.html">Cost Estimation</a></li>
+</ul>
+    </li>
+    <li><a href="#contact-us">Contact Us</a></li>
+    <li><a href="#rapid-quote" class="cta-button" id="rapid-quote-link">Rapid Quote</a></li> <!-- Added id here -->
+  </ul>
+</header>
+
+    <!-- Hero Section with Background Image and Text -->
+    <section class="hero">
+      <h1>No. 1 2D Planner in the USA</h1>
+      <p>We make your project successful and profitable</p>
+    </section>
+
+    <section class="content">
+      <h2>2D Planning Services</h2>
+      <p>
+At ArchiDesign USA, our 2D planning services are the foundation of successful architectural and engineering projects. With meticulous attention to detail, we transform your ideas and concepts into accurate and actionable 2D drawings that serve as the blueprint for your project.      </p>
+      <p>
+        Our experienced team uses industry-standard practices to deliver accurate and reliable estimates tailored to your specific needs.
+      </p>
+    </section>
+
+    <!-- Gallery Section -->
+    <center><h2>Our Services</h2></center> 
+    <section class="gallery">
+      <div class="gallery-item">
+        <a href="2d-planning.html">
+        <img src="https://via.placeholder.com/300" alt="2D Planning" /></a>
+        <h3>2D Planning</h3>
+      </div>
+      <div class="gallery-item">
+        <a href="3d-planning.html">
+        <img src="koko.png" alt="3D Planning" />
+        </a>
+        <h3>3D Planning</h3>
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/300" alt="Cost Estimation" />
+        <h3>Cost Estimation</h3>
+      </div>
+    </section>
+    
+    <section class="introduction">
+        <div class="content">
+            <h2>Construction 2D Planner in the USA</h2>
+            <p>
+With over three decades of experience in the industry, ArchiDesign USA has earned a reputation for excellence in 2D planning. Our commitment to quality, precision, and client satisfaction sets us apart. Whether you're planning a new construction, renovation, or expansion, our 2D planning services will provide the solid foundation you need for success.            </p>
+            <p>Estimators often face challenges due to resource constraints, which can limit the quality and quantity of data they can obtain. In situations where time is tight, estimators might resort to secondary data sources, which may not be as reliable or well-documented. This is where our expertise comes in.</p>
+        </div>
+        <div class="image-container">
+            <img src="/2D/2D 1.jpg" alt="Construction 2d-planning Image">
+        </div>
+    </section>
+
+    <section class="faq-section">
+    <h3>Frequently Asked Questions (FAQs)</h3>
+    <div class="faq">
+        <h4>What is 2D planning?</h4>
+        <p>2D planning involves creating detailed two-dimensional drawings and plans that serve as the blueprint for architectural and engineering projects. These plans include site layouts, floor plans, elevations, and sections.</p>
+    </div>
+    <div class="faq">
+        <h4>Why is 2D planning important?</h4>
+        <p>2D planning is crucial because it provides a clear and precise representation of the project's layout, ensuring that all stakeholders have a common understanding of the design and can make informed decisions.</p>
+    </div>
+    <div class="faq">
+        <h4>What types of drawings are included in 2D planning?</h4>
+        <p>2D planning typically includes site plans, floor plans, elevations, sections, and detailed construction drawings that outline the project's specifications and requirements.</p>
+    </div>
+    <div class="faq">
+        <h4>How accurate are 2D plans?</h4>
+        <p>2D plans are highly accurate and are created using advanced CAD software. They are designed to meet industry standards and regulations, ensuring that they are precise and reliable for construction purposes.</p>
+    </div>
+    <div class="faq">
+        <h4>Can 2D plans be customized for my project?</h4>
+        <p>Yes, 2D plans can be fully customized to meet the specific needs of your project, whether it's a residential, commercial, or industrial development.</p>
+    </div>
+</section>
+
+
+    <section class="steps-section">
+        <h3>Get Construction Takeoff in Easy Steps</h3>
+        <ul class="steps-list">
+            <li><strong>Step 1:</strong> Provide us with the project details and requirements.</li>
+            <li><strong>Step 2:</strong> We analyze your project scope and gather necessary data.</li>
+            <li><strong>Step 3:</strong> Our team prepares a detailed estimate based on your specific needs.</li>
+            <li><strong>Step 4:</strong> Review the estimate and make adjustments if necessary.</li>
+            <li><strong>Step 5:</strong> Finalize the estimate and proceed with your project.</li>
+        </ul>
+        <p>Simply enter your ZIP code to get started, and we will take care of the rest.</p>
+        <button class="cta-button">Start Your Estimate</button>
+    </section>
+
+    <section class="why-choose-us">
+        <h3>Why Choose Us?</h3>
+        <p>At [Your Company Name], we have a team of professional experts dedicated to making your construction estimates accurate and reliable. We have extensive experience working with clients on residential, commercial, and industrial projects across the USA.</p>
+        <p>We understand that managing a construction project can be time-consuming, and creating accurate estimates requires both expertise and attention to detail. Without experience, estimating can become a time-consuming task, potentially leading to lost opportunities.</p>
+        <p>But you don’t have to worry—we are here to help. Our professional estimators can provide you with a comprehensive construction estimate report that you can review in just 10 to 15 minutes.</p>
+        <div class="image-container">
+            <img src="3.jpg" alt="Why Choose Us Image">
+        </div>
+    </section>
+
+    <section class="benefits-section">
+        <h3>Benefits of Our Estimating Services</h3>
+        <ul class="benefits-list">
+            <li><strong>Save Money:</strong> Our estimates help you avoid unnecessary expenses, keeping your project within budget.</li>
+            <li><strong>High Accuracy:</strong> We use the latest tools and techniques to ensure our estimates are highly accurate.</li>
+            <li><strong>Quick Turnaround:</strong> We can deliver labor and material estimates within one or two days.</li>
+            <li><strong>Tracking:</strong> We use ZIP code tracking to tailor estimates to your specific location, ensuring precision.</li>
+            <li><strong>24/7 Support:</strong> Our team is available around the clock to support you throughout your project.</li>
+            <li><strong>Wide Range of Clients:</strong> We have successfully worked with General Contractors, Sub Contractors, Developers, Architects, and Owners across various industries.</li>
+            <li><strong>Affordable Rates:</strong> Our services are competitively priced, offering great value for your investment.</li>
+        </ul>
+    </section>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>About Us</h3>
+      <p>Estimate Florida Consulting provides construction estimating and consulting services. We have experts in construction project management. You can get a professional team to make your project successful and profitable.</p>
+      <div class="social-icons">
+        <a href="#"><img src="facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="X.png" alt="Twitter"></a>
+        <a href="#"><img src="in.png" alt="LinkedIn"></a>
+        <a href="#"><img src="youtube.png" alt="YouTube"></a>
+      </div>
+    </div>
+    <div class="footer-column">
+      <h3>Our Services</h3>
+      <ul>
+        <li><a href="2d-planning.html">2D Planning</a></li>
+        <li><a href="3d-planning.html">3D Planning</a></li>
+        <li><a href="cost-estimation1.html">Cost Estimation</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Contact Us</h3>
+      <p>Address: 5245 Wiles Rd Apt 3-102 Coconut Creek, FL 33073 United States</p>
+      <p>Phone: +1(561)530-2845</p>
+      <p>Email: info@estimatorflorida.com</p>
+    </div>
+  </div>
+  <p>&copy; 2024 ArchiDesign USA | <a href="#privacy-policy">Privacy Policy</a> | Powered by MDQ Digital</p>
+</footer>
+    
+    <script>
+  function openQuoteForm() {
+    window.open('test.html#rapid-quote', '_blank');
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var quoteButton = document.querySelector('.cta-button');
+    if (quoteButton) {
+      quoteButton.addEventListener('click', openQuoteForm);
+    }
+  });
+    // Smooth Scroll for Contact Us Button
+      document.querySelector('a[href="#contact-us"]').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('footer').scrollIntoView({ behavior: 'smooth' });
+      });
+</script>
+
+  </body>
+</html>
